@@ -195,6 +195,7 @@ public class LocalMiniMap extends Widget {
         OCache oc = ui.sess.glob.oc;
         List<Gob> dangergobs = new ArrayList<Gob>();
         synchronized (oc) {
+            Gob player = mv.player();
             for (Gob gob : oc) {
                 try {
                     Resource res = gob.getres();
@@ -202,7 +203,6 @@ public class LocalMiniMap extends Widget {
                         continue;
 
                     String basename = res.basename();
-
                     GobIcon icon = gob.getattr(GobIcon.class);
                     if (icon != null || Config.additonalicons.containsKey(res.name)) {
                         if (Gob.Type.MOB.has(gob.type) || gob.type == Gob.Type.BAT) {
@@ -218,7 +218,7 @@ public class LocalMiniMap extends Widget {
                                 g.image(tex, p2c(gob.rc).sub(tex.sz().div(2)).add(delta));
                             }
                         }
-                    } else if (gob.type == Gob.Type.PLAYER && gob.id != mv.player().id) {
+                    } else if (gob.type == Gob.Type.PLAYER && player != null && gob.id != player.id) {
                         dangergobs.add(gob);
                         continue;
                     }

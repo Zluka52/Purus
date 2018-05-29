@@ -1094,6 +1094,7 @@ public class GameUI extends ConsoleHost implements Console.Directory {
                 }
             }
             Utils.setprefb("chatvis", chat.targeth != 0);
+            return true;
         } else if ((key == 27) && (map != null) && !map.hasfocus) {
             setfocus(map);
             return (true);
@@ -1482,7 +1483,15 @@ public class GameUI extends ConsoleHost implements Console.Directory {
                 Utils.setpref("mapfile/" + chrid, args[1]);
             }
         });
-        cmdmap.put("tool", (cons, args) -> add(gettype(args[1]).create(ui, new Object[0]), 200, 200));
+        cmdmap.put("tool", new Console.Command() {
+            public void run(Console cons, String[] args) {
+                try {
+                    add(gettype(args[1]).create(ui, new Object[0]), 200, 200);
+                } catch(RuntimeException e) {
+                    e.printStackTrace(Debug.log);
+                }
+            }
+        });
         cmdmap.put("help", (cons, args) -> {
             cons.out.println("Available console commands:");
             cons.findcmds().forEach((s, cmd) -> cons.out.println(s));

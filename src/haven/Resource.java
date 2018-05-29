@@ -1668,11 +1668,7 @@ public class Resource implements Serializable {
     };
 
     private static final String[] fmtLocStringsFlower = new String[]{
-            "Gild (%s%% chance)",
-            "Follow %s",
-            "Travel along %s",
-            "Connect %s",
-            "Extend %s"
+            "Gild (%s%% chance)"
     };
 
     private static final String[] fmtLocStringsMsg = new String[]{
@@ -1831,7 +1827,7 @@ public class Resource implements Serializable {
             BufferedWriter out = null;
             try {
                 map.put(key, val);
-                key = key.replace(" ", "\\ ").replace(":", "\\:").replace("=", "\\=");
+                key = key.replace(" ", "\\ ").replace(":", "\\:").replace("=", "\\=").replace("\n", "\\n");
                 if (key.startsWith("\\ "))
                     key = "\\u0020" + key.substring(2);
                 if (key.endsWith("\\ "))
