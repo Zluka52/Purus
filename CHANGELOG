@@ -1,3 +1,31 @@
+Version 1.67.10
+    Misc:
+        * Upstream code merge.
+
+
+Version 1.67.9
+    Fixed:
+        * Crash when running on certain Intel drivers and 32-bit VMs.
+        * Peer into auto-selection not working.
+
+    Misc:
+        * Upstream code merge.
+
+
+Version 1.67.8
+    Fixed: 
+        * Crash when teleporting.
+
+
+Version 1.67.7
+    Misc:
+        * Added aggro radius to wild goats.
+        * Added mole to icons list.
+        * Add seashell to alarms list.
+        * Add treatments for coaler's cough.
+        * Ignore auto flower menu settings for eatable curios and spitroast.
+
+
 Version 1.67.6
     Fixed:
         * (hopefully) issues with ore dropping.

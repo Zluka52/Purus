@@ -2127,15 +2127,15 @@ public class MapView extends PView implements DTarget, Console.Directory, PFList
     }
 
     public boolean keydown(KeyEvent ev) {
-	if(placing != null) {
-	    if((ev.getKeyCode() == KeyEvent.VK_LEFT) && placing.adjust.rotate(placing, -1, ui.modflags()))
-		return(true);
-	    if((ev.getKeyCode() == KeyEvent.VK_RIGHT) && placing.adjust.rotate(placing, 1, ui.modflags()))
-		return(true);
-	}
-	if(camera.keydown(ev))
-	    return(true);
-	return(super.keydown(ev));
+        if (placing != null) {
+            if ((ev.getKeyCode() == KeyEvent.VK_LEFT) && placing.adjust.rotate(placing, -1, ui.modflags()))
+                return (true);
+            if ((ev.getKeyCode() == KeyEvent.VK_RIGHT) && placing.adjust.rotate(placing, 1, ui.modflags()))
+                return (true);
+        }
+        if (camera.keydown(ev))
+            return (true);
+        return (super.keydown(ev));
     }
 
     public boolean globtype(char c, KeyEvent ev) {
